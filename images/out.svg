@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+    <style type="text/css">
+	.Black{fill:#727272;}
+	.Red{fill:#D11C1C;}
+</style>
+  <polygon class="Red" points="25 10 31 16 25 22 25 18 11 18 11 14 25 14" style="fill: rgb(179, 13, 13); transform-origin: 21px 16px;"/>
+  <polygon class="Black" points="1 2 1 12 3 12 3 4 21 4 21 28 3 28 3 20 1 20 1 30 23 30 23 2" style="transform-origin: 12px 16px;" transform="matrix(-1, 0, 0, -1, 7.2e-7, 9.5e-7)"/>
+</svg>

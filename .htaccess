@@ -1,0 +1,32 @@
+<IfModule mod_headers.c>
+    Header unset Expires
+    Header always set X-Content-Type-Options "nosniff"
+    Header always unset Pragma
+    Header always unset X-Powered-By
+    
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, stale-while-revalidate=604800, immutable"
+        Header unset Expires
+    </FilesMatch>
+    <FilesMatch "\.(html|htm|xml|txt)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+        Header unset Expires
+    </FilesMatch>
+		<FilesMatch "\.php$">
+			SetHandler application/x-httpd-php
+		</FilesMatch>
+		
+</IfModule>
+<IfModule mod_mime.c>
+    AddType 'text/css; charset=utf-8' .css
+    AddType 'text/html; charset=utf-8' .html
+    AddType 'application/javascript; charset=utf-8' .js
+</IfModule>
+# Cache-Busting Rewrite für Dateien mit Hash
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Alle anderen Anfragen an index.php weiterleiten (Front-Controller)
+RewriteRule ^(.*)$ index.php [L,QSA]
+RewriteRule ^(.*)\.[a-f0-9]{6,}\.(css|js)$ $1.$2 [L]
+
